@@ -38,3 +38,11 @@ data_loader = DataLoader(dataset=joint_dataset, batch_size=2, shuffle=True)
 
 for i, batch in enumerate(data_loader, 1):
     print(f'batch {i}:', 'x:', batch[0], '\n      y:', batch[1])
+
+for epoch in range(2):
+    print(f'epoch {epoch+1}')
+    for i, batch in enumerate(data_loader, 1):
+        print(f'batch {i}:', 'x:', batch[0], '\n     y:', batch[1])
+
+        
+
