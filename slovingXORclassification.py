@@ -21,12 +21,16 @@ plt.show()
 
 # Now we start with a simple single layer NN
 model = nn.Sequential(
-    nn.Linear(2, 1),
+    nn.Linear(2,12),
+    nn.ReLU(),
+    nn.Linear(12,12),
+    nn.ReLU(),
+    nn.Linear(12, 1),
     nn.Sigmoid()
 )
 print(model)
 loss_fn = nn.BCELoss()
-optimizer = torch.optim.SGD(model.parameters(), lr=0.001)
+optimizer = torch.optim.SGD(model.parameters(), lr=0.015)
 from torch.utils.data import DataLoader, TensorDataset
 train_ds = TensorDataset(x_train, y_train)
 batch_size = 2
@@ -72,5 +76,7 @@ ax.set_xlabel('Epochs', size=15)
 ax = fig.add_subplot(1, 2, 2)
 plt.plot(history[2], lw=4)
 plt.plot(history[3], lw=4)
-plt.legend(['Train acc.', 'Validation acc.'], fontisize=15)
+plt.legend(['Train acc.', 'Validation acc.'], fontsize=15)
 ax.set_xlabel('Epochs', size=15)
+
+plt.show()
