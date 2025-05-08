@@ -57,7 +57,9 @@ def train(model, num_epochs, train_dl, x_valid, y_valid):
         loss = loss_fn(pred, y_valid)
         loss_hist_valid[epoch] = loss.item()
         is_correct = ((pred>=0.5).float() == y_valid).float()
-        accuracy_hist_train, loss_hist_valid, accuracy_hist_train, accuracy_hist_valid
+        accuracy_hist_valid[epoch] += is_correct.mean()
+    return loss_hist_train, loss_hist_valid, accuracy_hist_train, accuracy_hist_valid
+    
     
 history = train(model, num_epochs, train_dl, x_valid, y_valid)
 
