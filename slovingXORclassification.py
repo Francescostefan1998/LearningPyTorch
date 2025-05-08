@@ -21,11 +21,11 @@ plt.show()
 
 # Now we start with a simple single layer NN
 model = nn.Sequential(
-    nn.Linear(2,12),
+    nn.Linear(2,6),
     nn.ReLU(),
-    nn.Linear(12,12),
+    nn.Linear(6,6),
     nn.ReLU(),
-    nn.Linear(12, 1),
+    nn.Linear(6, 1),
     nn.Sigmoid()
 )
 print(model)
@@ -80,3 +80,4 @@ plt.legend(['Train acc.', 'Validation acc.'], fontsize=15)
 ax.set_xlabel('Epochs', size=15)
 
 plt.show()
+
